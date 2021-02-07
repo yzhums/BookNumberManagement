@@ -14,7 +14,7 @@ table 50200 "ZY Book"
                 if "No." <> xRec."No." then begin
                     SalesSetup.Get();
                     NoSeriesMgt.TestManual(SalesSetup."Book Nos.");
-                    "No." := '';
+                    "No. Series" := '';
                 end;
             end;
         }
@@ -33,6 +33,12 @@ table 50200 "ZY Book"
             Caption = 'Page Count';
             DataClassification = CustomerContent;
         }
+        field(5; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            Editable = false;
+            TableRelation = "No. Series";
+        }
     }
 
     keys
@@ -49,7 +55,7 @@ table 50200 "ZY Book"
         if "No." = '' then begin
             SalesSetup.Get();
             SalesSetup.TestField("Book Nos.");
-            NoSeriesMgt.InitSeries(SalesSetup."Book Nos.", xRec."No.", 0D, "No.", SalesSetup."Book Nos.");
+            NoSeriesMgt.InitSeries(SalesSetup."Book Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
     end;
 

@@ -4,7 +4,6 @@ page 50200 "ZY Book Card"
     PageType = Card;
     SourceTable = "ZY Book";
     UsageCategory = Administration;
-    ApplicationArea = All;
 
     layout
     {
